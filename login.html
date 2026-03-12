@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SecureVPN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body class="auth-page">
+    <!-- Background Animation -->
+    <div class="auth-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-transparent">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span>SecureVPN</span>
+            </a>
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn" onclick="toggleThemeMenu()" title="Change Theme">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </button>
+                    <div class="theme-menu" id="themeMenu">
+                        <div class="theme-option" onclick="setTheme('default')" data-theme="default">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"></span>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('light')" data-theme="light">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #ffffff, #e2e8f0);"></span>
+                            <span>Light</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('blue')" data-theme="blue">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);"></span>
+                            <span>Blue</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('green')" data-theme="green">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #10b981, #14b8a6);"></span>
+                            <span>Green</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('sunset')" data-theme="sunset">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #f97316, #ef4444);"></span>
+                            <span>Sunset</span>
+                        </div>
+                    </div>
+                </div>
+                <span>Don't have an account?</span>
+                <a href="register.html" class="btn btn-secondary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1>Welcome Back</h1>
+                        <p>Sign in to access your SecureVPN account</p>
+                    </div>
+
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </span>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                </span>
+                                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                                <button type="button" class="password-toggle" id="passwordToggle">
+                                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                        <line x1="1" y1="1" x2="23" y2="23"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large" onclick="handleLoginSubmit(event)">
+                            <span class="btn-text">Sign In</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button class="social-btn google">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Google
+                        </button>
+                        <button class="social-btn apple">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            Apple
+                        </button>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%); border: 1px solid rgba(99,102,241,0.3); border-radius: 12px; padding: 16px; margin: 20px 0; text-align: center;">
+                        <p style="color: #a5b4fc; font-size: 0.9rem; margin-bottom: 8px;">👇 Quick Login (Demo Accounts)</p>
+                        <p style="color: white; font-size: 0.85rem;">User: demo@securevpn.com / demo12345</p>
+                        <p style="color: white; font-size: 0.85rem;">Admin: admin@securevpn.com / admin123</p>
+                        <button type="button" onclick="autoFillDemo()" style="margin-top: 10px; padding: 8px 16px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem;">Auto-fill Demo</button>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="register.html">Sign up</a></p>
+                    </div>
+                </div>
+
+                <!-- Security Info -->
+                <div class="auth-info">
+                    <div class="security-features">
+                        <h3>Secure & Private</h3>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <div>
+                                <h4>Military-Grade Encryption</h4>
+                                <p>Your credentials are protected with AES-256 encryption</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                            <div>
+                                <h4>Two-Factor Authentication</h4>
+                                <p>Add an extra layer of security to your account</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <div>
+                                <h4>No Activity Logs</h4>
+                                <p>We never track or store your login activity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="additional-scripts.js"></script>
+    <script>
+        // Test if JavaScript is working
+        console.log('JavaScript is running!');
+        
+        // Direct login handler for button click
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            console.log('Login button clicked');
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (!email || !password) {
+                showNotification('Error', 'Please enter both email and password.', 'error');
+                return false;
+            }
+            
+            // Check admin
+            if (email === 'admin@securevpn.com' && password === 'admin123') {
+                localStorage.setItem('currentUser', JSON.stringify({
+                    id: 'admin', name: 'Administrator', email: email, role: 'admin', plan: 'Ultimate'
+                }));
+                showNotification('Welcome Admin!', 'Redirecting...', 'success');
+                setTimeout(() => window.location.href = 'admin.html', 1500);
+                return false;
+            }
+            
+            // Check users
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                showNotification('Welcome Back!', 'Redirecting to dashboard...', 'success');
+                setTimeout(() => window.location.href = 'dashboard.html', 1500);
+            } else {
+                showNotification('Login Failed', 'Invalid email or password.', 'error');
+            }
+            return false;
+        }
+        
+        // Auto-fill demo credentials
+        function autoFillDemo() {
+            document.getElementById('email').value = 'demo@securevpn.com';
+            document.getElementById('password').value = 'demo12345';
+            showNotification('Auto-filled', 'Demo credentials entered. Click Sign In to login.', 'info');
+        }
+
+        // Beautiful Notification System
+        function showNotification(title, message, type = 'info') {
+            // Remove existing notifications
+            const existing = document.querySelector('.custom-notification');
+            if (existing) existing.remove();
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `custom-notification custom-notification-${type}`;
+            
+            // Icon based on type
+            const icons = {
+                success: '✓',
+                error: '✕',
+                info: 'ℹ'
+            };
+            
+            notification.innerHTML = `
+                <div class="notification-icon">${icons[type] || icons.info}</div>
+                <div class="notification-content">
+                    <h4>${title}</h4>
+                    <p>${message}</p>
+                </div>
+                <button class="notification-close">&times;</button>
+            `;
+            
+            // Add styles if not already added
+            if (!document.getElementById('notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    .custom-notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
+                        padding: 20px 24px;
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        min-width: 350px;
+                        max-width: 450px;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+                        z-index: 99999;
+                        animation: notificationSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                        backdrop-filter: blur(10px);
+                    }
+                    
+                    @keyframes notificationSlideIn {
+                        from { 
+                            transform: translateX(120%) scale(0.8); 
+                            opacity: 0; 
+                        }
+                        to { 
+                            transform: translateX(0) scale(1); 
+                            opacity: 1; 
+                        }
+                    }
+                    
+                    @keyframes notificationSlideOut {
+                        from { 
+                            transform: translateX(0) scale(1); 
+                            opacity: 1; 
+                        }
+                        to { 
+                            transform: translateX(120%) scale(0.8); 
+                            opacity: 0; 
+                        }
+                    }
+                    
+                    .custom-notification-success {
+                        border-left: 5px solid #10b981;
+                    }
+                    
+                    .custom-notification-success .notification-icon {
+                        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                    }
+                    
+                    .custom-notification-error {
+                        border-left: 5px solid #ef4444;
+                    }
+                    
+                    .custom-notification-error .notification-icon {
+                        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+                    }
+                    
+                    .notification-icon {
+                        width: 44px;
+                        height: 44px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    }
+                    
+                    .notification-content {
+                        flex: 1;
+                    }
+                    
+                    .notification-content h4 {
+                        font-size: 1.1rem;
+                        font-weight: 700;
+                        margin: 0 0 6px 0;
+                        color: white;
+                    }
+                    
+                    .notification-content p {
+                        font-size: 0.95rem;
+                        color: rgba(255, 255, 255, 0.7);
+                        margin: 0;
+                        line-height: 1.4;
+                    }
+                    
+                    .notification-close {
+                        background: rgba(255, 255, 255, 0.1);
+                        border: none;
+                        color: rgba(255, 255, 255, 0.6);
+                        font-size: 24px;
+                        cursor: pointer;
+                        padding: 4px 10px;
+                        border-radius: 8px;
+                        line-height: 1;
+                        transition: all 0.2s ease;
+                    }
+                    
+                    .notification-close:hover {
+                        background: rgba(255, 255, 255, 0.2);
+                        color: white;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Close button
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.style.animation = 'notificationSlideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'notificationSlideOut 0.3s ease forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 4000);
+        }
+
+        // Login functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Login page loaded');
+            const loginForm = document.getElementById('loginForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            console.log('Form found:', !!loginForm);
+            console.log('Email input found:', !!emailInput);
+            console.log('Password input found:', !!passwordInput);
+            
+            if (!loginForm || !emailInput || !passwordInput) {
+                console.error('Required elements not found!');
+                return;
+            }
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('Form submitted');
+                
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+                
+                console.log('Email:', email);
+                console.log('Password length:', password.length);
+                
+                if (!email || !password) {
+                    showNotification('Error', 'Please enter both email and password.', 'error');
+                    return;
+                }
+                
+                // Check for admin login
+                if (email === 'admin@securevpn.com' && password === 'admin123') {
+                    console.log('Admin login detected');
+                    const adminUser = {
+                        id: 'admin',
+                        name: 'Administrator',
+                        email: email,
+                        role: 'admin',
+                        plan: 'Ultimate'
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(adminUser));
+                    showNotification('Welcome Admin!', 'Redirecting to admin panel...', 'success');
+                    setTimeout(() => window.location.href = 'admin.html', 1500);
+                    return;
+                }
+                
+                // Check regular users
+                console.log('Checking regular users...');
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                console.log('Total users:', users.length);
+                console.log('Users:', users.map(u => u.email));
+                
+                const user = users.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    console.log('User found:', user.name);
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    showNotification('Welcome Back!', 'Redirecting to dashboard...', 'success');
+                    setTimeout(() => window.location.href = 'dashboard.html', 1500);
+                } else {
+                    console.log('User not found');
+                    showNotification('Login Failed', 'Invalid email or password.', 'error');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

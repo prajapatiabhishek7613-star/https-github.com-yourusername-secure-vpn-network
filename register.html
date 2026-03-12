@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - SecureVPN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body class="auth-page">
+    <!-- Background Animation -->
+    <div class="auth-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-transparent">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span>SecureVPN</span>
+            </a>
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn" onclick="toggleThemeMenu()" title="Change Theme">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </button>
+                    <div class="theme-menu" id="themeMenu">
+                        <div class="theme-option" onclick="setTheme('default')" data-theme="default">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"></span>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('light')" data-theme="light">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #ffffff, #e2e8f0);"></span>
+                            <span>Light</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('blue')" data-theme="blue">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);"></span>
+                            <span>Blue</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('green')" data-theme="green">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #10b981, #14b8a6);"></span>
+                            <span>Green</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('sunset')" data-theme="sunset">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #f97316, #ef4444);"></span>
+                            <span>Sunset</span>
+                        </div>
+                    </div>
+                </div>
+                <span>Already have an account?</span>
+                <a href="login.html" class="btn btn-secondary">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1>Create Account</h1>
+                        <p>Start your journey to online privacy</p>
+                    </div>
+
+                    <form class="auth-form" id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <div class="input-group">
+                                    <span class="input-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                    </span>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="John">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <div class="input-group">
+                                    <span class="input-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                    </span>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </span>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                </span>
+                                <input type="password" id="password" name="password" required placeholder="Create a strong password">
+                                <button type="button" class="password-toggle" id="passwordToggle">
+                                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                        <line x1="1" y1="1" x2="23" y2="23"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="passwordStrength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="strengthFill"></div>
+                                </div>
+                                <span class="strength-text" id="strengthText">Password strength</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                </span>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" checked>
+                                <span class="checkmark"></span>
+                                Send me security tips and product updates
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large">
+                            <span class="btn-text">Create Account</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </form>
+
+                    <div style="background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%); border: 1px solid rgba(99,102,241,0.3); border-radius: 12px; padding: 16px; margin: 20px 0; text-align: center;">
+                        <p style="color: #a5b4fc; font-size: 0.9rem; margin-bottom: 8px;">👇 Demo Account (Already Created)</p>
+                        <p style="color: white; font-weight: 600;">Email: demo@securevpn.com</p>
+                        <p style="color: white; font-weight: 600;">Password: demo12345</p>
+                        <a href="login.html" style="display: inline-block; margin-top: 10px; padding: 8px 20px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; text-decoration: none; border-radius: 8px; font-size: 0.9rem;">Login with Demo</a>
+                    </div>
+
+                    <div class="auth-divider">
+                        <span>Or sign up with</span>
+                    </div>
+
+                    <div class="social-auth">
+                        <button class="social-btn google">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            Google
+                        </button>
+                        <button class="social-btn apple">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            Apple
+                        </button>
+                    </div>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Sign in</a></p>
+                    </div>
+                </div>
+
+                <!-- Benefits Info -->
+                <div class="auth-info">
+                    <div class="security-features">
+                        <h3>Why Choose SecureVPN?</h3>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            <div>
+                                <h4>30-Day Money-Back Guarantee</h4>
+                                <p>Try risk-free with our no-questions-asked refund policy</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                            <div>
+                                <h4>Lightning Fast Speeds</h4>
+                                <p>Optimized servers for streaming, gaming, and browsing</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            <div>
+                                <h4>10 Devices Simultaneously</h4>
+                                <p>Protect all your devices with one account</p>
+                            </div>
+                        </div>
+                        <div class="benefits-highlight">
+                            <div class="highlight-stat">
+                                <span class="highlight-number">50M+</span>
+                                <span class="highlight-label">Happy Users</span>
+                            </div>
+                            <div class="highlight-stat">
+                                <span class="highlight-number">4.9</span>
+                                <span class="highlight-label">App Store Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="additional-scripts.js"></script>
+    <script>
+        // Beautiful Notification System (same as login)
+        function showNotification(title, message, type = 'info') {
+            const existing = document.querySelector('.custom-notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = `custom-notification custom-notification-${type}`;
+            
+            const icons = { success: '✓', error: '✕', info: 'ℹ' };
+            
+            notification.innerHTML = `
+                <div class="notification-icon">${icons[type] || icons.info}</div>
+                <div class="notification-content">
+                    <h4>${title}</h4>
+                    <p>${message}</p>
+                </div>
+                <button class="notification-close">&times;</button>
+            `;
+            
+            if (!document.getElementById('notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    .custom-notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 16px;
+                        padding: 20px 24px;
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        min-width: 350px;
+                        max-width: 450px;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+                        z-index: 99999;
+                        animation: notificationSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                        backdrop-filter: blur(10px);
+                    }
+                    @keyframes notificationSlideIn {
+                        from { transform: translateX(120%) scale(0.8); opacity: 0; }
+                        to { transform: translateX(0) scale(1); opacity: 1; }
+                    }
+                    @keyframes notificationSlideOut {
+                        from { transform: translateX(0) scale(1); opacity: 1; }
+                        to { transform: translateX(120%) scale(0.8); opacity: 0; }
+                    }
+                    .custom-notification-success { border-left: 5px solid #10b981; }
+                    .custom-notification-success .notification-icon { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+                    .custom-notification-error { border-left: 5px solid #ef4444; }
+                    .custom-notification-error .notification-icon { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+                    .notification-icon {
+                        width: 44px;
+                        height: 44px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    }
+                    .notification-content { flex: 1; }
+                    .notification-content h4 {
+                        font-size: 1.1rem;
+                        font-weight: 700;
+                        margin: 0 0 6px 0;
+                        color: white;
+                    }
+                    .notification-content p {
+                        font-size: 0.95rem;
+                        color: rgba(255, 255, 255, 0.7);
+                        margin: 0;
+                        line-height: 1.4;
+                    }
+                    .notification-close {
+                        background: rgba(255, 255, 255, 0.1);
+                        border: none;
+                        color: rgba(255, 255, 255, 0.6);
+                        font-size: 24px;
+                        cursor: pointer;
+                        padding: 4px 10px;
+                        border-radius: 8px;
+                        line-height: 1;
+                        transition: all 0.2s ease;
+                    }
+                    .notification-close:hover {
+                        background: rgba(255, 255, 255, 0.2);
+                        color: white;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.style.animation = 'notificationSlideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            });
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'notificationSlideOut 0.3s ease forwards';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 4000);
+        }
+
+        // Auto-create demo account on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const demoExists = users.find(u => u.email === 'demo@securevpn.com');
+            
+            if (!demoExists) {
+                const demoUser = {
+                    id: Date.now(),
+                    name: 'Demo User',
+                    email: 'demo@securevpn.com',
+                    password: 'demo12345',
+                    plan: 'Premium',
+                    status: 'active',
+                    joined: new Date().toISOString(),
+                    role: 'user'
+                };
+                users.push(demoUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+        });
+
+        // Registration functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            if (!registerForm) return;
+            
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const name = firstName + ' ' + lastName;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                
+                // Validation
+                if (password !== confirmPassword) {
+                    showNotification('Error', 'Passwords do not match!', 'error');
+                    return;
+                }
+                
+                if (password.length < 8) {
+                    showNotification('Error', 'Password must be at least 8 characters!', 'error');
+                    return;
+                }
+                
+                // Check if user already exists
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                if (users.find(u => u.email === email)) {
+                    showNotification('Error', 'Email already registered!', 'error');
+                    return;
+                }
+                
+                // Get selected plan from calculator if exists
+                const selectedPlan = JSON.parse(localStorage.getItem('selectedPlan') || '{}');
+                
+                // Create new user
+                const newUser = {
+                    id: Date.now(),
+                    name: name,
+                    email: email,
+                    password: password,
+                    plan: selectedPlan.billing ? 'Premium' : 'Free',
+                    status: 'active',
+                    joined: new Date().toISOString(),
+                    role: 'user'
+                };
+                
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Auto login
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                
+                showNotification('Welcome!', 'Account created successfully!', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>

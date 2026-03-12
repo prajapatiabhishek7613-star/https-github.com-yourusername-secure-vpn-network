@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SecureVPN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span>SecureVPN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <div class="theme-switcher">
+                    <button class="theme-btn" onclick="toggleThemeMenu()" title="Change Theme">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </button>
+                    <div class="theme-menu" id="themeMenu">
+                        <div class="theme-option" onclick="setTheme('default')" data-theme="default">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"></span>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('light')" data-theme="light">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #ffffff, #e2e8f0);"></span>
+                            <span>Light</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('blue')" data-theme="blue">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);"></span>
+                            <span>Blue</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('green')" data-theme="green">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #10b981, #14b8a6);"></span>
+                            <span>Green</span>
+                        </div>
+                        <div class="theme-option" onclick="setTheme('sunset')" data-theme="sunset">
+                            <span class="theme-color" style="background: linear-gradient(135deg, #f97316, #ef4444);"></span>
+                            <span>Sunset</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="login.html" class="btn btn-secondary">Log In</a>
+                <a href="register.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Our Story</h1>
+                <p>Protecting digital privacy for millions worldwide since 2015</p>
+            </div>
+        </div>
+        <div class="particles" id="particles"></div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <span class="section-tag">Our Mission</span>
+                    <h2>Making Online Privacy Accessible to Everyone</h2>
+                    <p>Founded in 2015, SecureVPN began with a simple belief: everyone deserves the right to privacy online. What started as a small project by a group of privacy advocates has grown into one of the world's most trusted VPN services.</p>
+                    <p>Today, we protect over 50 million users across 60+ countries, providing military-grade encryption and a strict no-logs policy that ensures your data stays yours.</p>
+                    <div class="mission-stats">
+                        <div class="mission-stat">
+                            <span class="mission-number">50M+</span>
+                            <span class="mission-label">Active Users</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="mission-number">5000+</span>
+                            <span class="mission-label">Servers</span>
+                        </div>
+                        <div class="mission-stat">
+                            <span class="mission-number">60+</span>
+                            <span class="mission-label">Countries</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-visual">
+                    <div class="mission-image">
+                        <div class="mission-graphic">
+                            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="200" cy="200" r="150" stroke="url(#grad1)" stroke-width="2" opacity="0.3"/>
+                                <circle cx="200" cy="200" r="120" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                <circle cx="200" cy="200" r="90" stroke="url(#grad1)" stroke-width="3"/>
+                                <path d="M200 110 L200 200 L280 240" stroke="url(#grad2)" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="200" cy="200" r="15" fill="url(#grad1)"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#6366f1"/>
+                                        <stop offset="100%" style="stop-color:#8b5cf6"/>
+                                    </linearGradient>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#06b6d4"/>
+                                        <stop offset="100%" style="stop-color:#6366f1"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Values</span>
+                <h2>What We Stand For</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>We believe privacy is a fundamental human right. Our strict no-logs policy ensures your data is never stored or shared.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>We're open about how we operate. Independent audits verify our security claims and no-logs policy.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We continuously improve our technology, adopting the latest protocols like WireGuard for better performance.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Accessibility</h3>
+                    <p>Privacy shouldn't be a luxury. We offer affordable plans and free versions to make security accessible to all.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2>Meet the People Behind SecureVPN</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">JD</div>
+                    </div>
+                    <h3>John Davidson</h3>
+                    <span class="team-role">CEO & Co-Founder</span>
+                    <p>Former cybersecurity analyst with 15+ years of experience protecting enterprise networks.</p>
+                    <div class="team-social">
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">SM</div>
+                    </div>
+                    <h3>Sarah Mitchell</h3>
+                    <span class="team-role">CTO & Co-Founder</span>
+                    <p>Expert in cryptography and network security. Led development of our proprietary encryption protocols.</p>
+                    <div class="team-social">
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">AK</div>
+                    </div>
+                    <h3>Alex Kim</h3>
+                    <span class="team-role">Head of Engineering</span>
+                    <p>Built and scaled our server infrastructure to support millions of concurrent connections.</p>
+                    <div class="team-social">
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">EP</div>
+                    </div>
+                    <h3>Emma Patel</h3>
+                    <span class="team-role">Head of Customer Success</span>
+                    <p>Ensures our users get the best experience with 24/7 support and comprehensive resources.</p>
+                    <div class="team-social">
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Journey</span>
+                <h2>Milestones That Define Us</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>SecureVPN founded with a mission to make online privacy accessible to everyone.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-content">
+                        <h3>1 Million Users</h3>
+                        <p>Reached our first million users and expanded to 30 countries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Independent Audit</h3>
+                        <p>First independent security audit confirms our no-logs policy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>WireGuard Protocol</h3>
+                        <p>Pioneered WireGuard implementation for faster, more secure connections.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>50 Million Users</h3>
+                        <p>Celebrated 50 million users and 5000+ servers worldwide.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>Future Forward</h3>
+                        <p>Continuing to innovate and expand our global network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Our Mission</h2>
+                <p>Be part of the movement for digital privacy and security.</p>
+                <div class="cta-actions">
+                    <a href="index.html#pricing" class="btn btn-primary btn-large">Get Started</a>
+                    <a href="contact.html" class="btn btn-outline btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand">
+                        <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                        <span>SecureVPN</span>
+                    </a>
+                    <p>Protecting your privacy and security online since 2015.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                        <li><a href="index.html#download">Download</a></li>
+                        <li><a href="#">Server Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SecureVPN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" id="chatToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+        </button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h4>Support Chat</h4>
+                <button class="chat-close" id="chatClose">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="chatSend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="additional-scripts.js"></script>
+</body>
+</html>
